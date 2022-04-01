@@ -18,24 +18,21 @@ export class TableColumnComponent implements OnInit {
   @Input('departed') departed: any;
   @Input('arrival') arrival: any;
 
-  arrivalFalse: boolean = true;
-  arrivalTrue: boolean = false;
-  departPending: boolean = false;
-  departNotPending: boolean = true;
-
-  checkForData (): void {
+  checkForArrival () {
     if (this.arrival) {
-      this.arrivalFalse = false;
-      this.arrivalTrue = true;
-    }
+      return true;
+    } else return false;
+  }
+  
+  checkForDepart () {
     if (this.departed === 'Pending') {
-      this.departPending = true;
-      this.departNotPending = false;
-    }
+      return false;
+    } else return true;
   }
   
   ngOnInit(): void {
-    this.checkForData()
+    this.checkForDepart()
+    this.checkForArrival()
   }
 
 }

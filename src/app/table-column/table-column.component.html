@@ -20,11 +20,11 @@
 </tr>
 <tr>
     <th>Departed Date</th>
-    <td *ngIf="departPending"><i>pending...</i></td>
-    <td *ngIf="departNotPending">{{departed}}</td>
+    <td *ngIf="!checkForDepart()"><i>pending...</i></td>
+    <td *ngIf="checkForDepart()">{{departed}}</td>
 </tr>
 <tr>
     <th>Arrival Date</th>
-    <td *ngIf="arrivalFalse"><i>pending...</i></td>
-    <td *ngIf="arrivalTrue">{{arrival}}</td>
+    <td *ngIf="!checkForArrival()"><i>pending...</i></td>
+    <td *ngIf="checkForArrival()">{{arrival}}</td>
 </tr>
