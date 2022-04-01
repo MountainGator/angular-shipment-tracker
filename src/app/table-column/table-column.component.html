@@ -1,0 +1,30 @@
+<tr>
+    <th>Part</th>
+    <td style="font-size: '2rem'; color: 'blue';">{{part}}</td>
+</tr>
+<tr>
+    <th>Origin</th>
+    <td>{{origin}} - {{originCity}}</td>
+</tr>
+<tr>
+    <th>Destination</th>
+    <td>{{destination}} - {{destinationCity}}</td>
+</tr>
+<tr>
+    <th>Pieces</th>
+    <td>{{pieces}}</td>
+</tr>
+<tr>
+    <th>Weight (k)</th>
+    <td>{{weight}}</td>
+</tr>
+<tr>
+    <th>Departed Date</th>
+    <td *ngIf="departPending"><i>pending...</i></td>
+    <td *ngIf="departNotPending">{{departed}}</td>
+</tr>
+<tr>
+    <th>Arrival Date</th>
+    <td *ngIf="arrivalFalse"><i>pending...</i></td>
+    <td *ngIf="arrivalTrue">{{arrival}}</td>
+</tr>

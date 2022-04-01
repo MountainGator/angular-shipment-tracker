@@ -1,40 +1,29 @@
 <div class="container w-50 m-auto">
+    <h1>Shipment Tracker</h1>
     <form [formGroup]="shipmentForm" (ngSubmit)="handleSubmit()">
-        <label for="ship_num" class="mx-2">Enter Shipment #</label>
-        <input class="mx-2" type="text" name="ship_num" id="ship_num" formControlName="ship_num">
+        <input 
+            class="mx-2" 
+            type="text" 
+            name="ship_num" 
+            id="ship_num" 
+            formControlName="ship_num"
+            placeholder="shipment number"
+        >
         <button class="btn btn-success mx-2" type="submit">Trace</button>
     </form>
-
-<table class="table table-bordered w-30" *ngFor="let data of dataList">
-
-    <tr>
-        <th>Part</th>
-        <td style="font-size: '2rem'; color: 'blue';">{{data.part}}</td>
-    </tr>
-    <tr>
-        <th>Origin</th>
-        <td>{{data.partOrigin}} - {{data.partOriginCity}}</td>
-    </tr>
-    <tr>
-        <th>Destination</th>
-        <td>{{data.partDestination}} - {{data.partDestinationCity}}</td>
-    </tr>
-    <tr>
-        <th>Pieces</th>
-        <td>{{data.partPieces}}</td>
-    </tr>
-    <tr>
-        <th>Weight (k)</th>
-        <td>{{data.partWeightKilos}}</td>
-    </tr>
-    <tr>
-        <th>Departed Date</th>
-        <td>{{data.ShippedDateTime}}</td>
-    </tr>
-    <tr>
-        <th>Arrival Date</th>
-        <td>{{data.ArrivedDateTime}}</td>
-    </tr>
-
-</table>
+    <div *ngIf="shipment">
+        <table class="table table-bordered w-30 my-4" *ngFor="let data of dataList">
+            <app-table-column 
+                [part]="data.part"
+                [origin]="data.partOrigin"
+                [originCity]="data.partOriginCity"
+                [destination]="data.partDestination"
+                [destinationCity]="data.partDestinationCity"
+                [pieces]="data.partPieces"
+                [weight]="data.partWeightKilos"
+                [departed]="data.ShippedDateTime"
+                [arrival]="data.ArrivedDateTime" >
+            </app-table-column>
+        </table>
+    </div>
 </div>

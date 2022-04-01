@@ -11,30 +11,7 @@ export class ShipmentFormComponent implements OnInit {
   public shipmentForm:FormGroup;
   shipment: string = '';
   
-  dataList = [
-    {
-      part: 'A',
-      partOrigin: '', 
-      partOriginCity:'',
-      partDestination: '',
-      partDestinationCity: '',
-      partPieces: '',
-      partWeightKilos: '',
-      ShippedDateTime: '',
-      ArrivedDateTime: '' 
-    },
-    {
-      part: 'B',
-      partOrigin: '', 
-      partOriginCity:'',
-      partDestination: '',
-      partDestinationCity: '',
-      pieces: '',
-      partWeightKilos: '',
-      ShippedDateTime: '',
-      ArrivedDateTime: '' 
-    }
-  ];
+  dataList: any;
 
   constructor(
     private ApiService: ApiService,
